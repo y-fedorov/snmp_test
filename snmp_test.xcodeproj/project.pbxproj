@@ -8,7 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		A9D65BC61849CAC800F085A2 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9D65BC51849CAC800F085A2 /* main.cpp */; };
-		A9D65BC81849CAC800F085A2 /* snmp_test.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = A9D65BC71849CAC800F085A2 /* snmp_test.1 */; };
+		A9D65BD01849CADE00F085A2 /* snmp_connection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9D65BCE1849CADE00F085A2 /* snmp_connection.cpp */; };
+		A9D65BD21849CB0D00F085A2 /* libnetsnmp.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A9D65BD11849CB0D00F085A2 /* libnetsnmp.dylib */; };
+		A9D65BD41849CB2600F085A2 /* libboost_system.a in Frameworks */ = {isa = PBXBuildFile; fileRef = A9D65BD31849CB2600F085A2 /* libboost_system.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -18,7 +20,6 @@
 			dstPath = /usr/share/man/man1/;
 			dstSubfolderSpec = 0;
 			files = (
-				A9D65BC81849CAC800F085A2 /* snmp_test.1 in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 1;
 		};
@@ -27,7 +28,10 @@
 /* Begin PBXFileReference section */
 		A9D65BC21849CAC800F085A2 /* snmp_test */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = snmp_test; sourceTree = BUILT_PRODUCTS_DIR; };
 		A9D65BC51849CAC800F085A2 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
-		A9D65BC71849CAC800F085A2 /* snmp_test.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = snmp_test.1; sourceTree = "<group>"; };
+		A9D65BCE1849CADE00F085A2 /* snmp_connection.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = snmp_connection.cpp; sourceTree = "<group>"; };
+		A9D65BCF1849CADE00F085A2 /* snmp_connection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = snmp_connection.h; sourceTree = "<group>"; };
+		A9D65BD11849CB0D00F085A2 /* libnetsnmp.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libnetsnmp.dylib; path = usr/lib/libnetsnmp.dylib; sourceTree = SDKROOT; };
+		A9D65BD31849CB2600F085A2 /* libboost_system.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libboost_system.a; path = ../../boost_1_55_0b1/stage/lib/libboost_system.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +39,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9D65BD41849CB2600F085A2 /* libboost_system.a in Frameworks */,
+				A9D65BD21849CB0D00F085A2 /* libnetsnmp.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +50,8 @@
 		A9D65BB91849CAC800F085A2 = {
 			isa = PBXGroup;
 			children = (
+				A9D65BD31849CB2600F085A2 /* libboost_system.a */,
+				A9D65BD11849CB0D00F085A2 /* libnetsnmp.dylib */,
 				A9D65BC41849CAC800F085A2 /* snmp_test */,
 				A9D65BC31849CAC800F085A2 /* Products */,
 			);
@@ -60,8 +68,9 @@
 		A9D65BC41849CAC800F085A2 /* snmp_test */ = {
 			isa = PBXGroup;
 			children = (
+				A9D65BCE1849CADE00F085A2 /* snmp_connection.cpp */,
+				A9D65BCF1849CADE00F085A2 /* snmp_connection.h */,
 				A9D65BC51849CAC800F085A2 /* main.cpp */,
-				A9D65BC71849CAC800F085A2 /* snmp_test.1 */,
 			);
 			path = snmp_test;
 			sourceTree = "<group>";
@@ -118,6 +127,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9D65BC61849CAC800F085A2 /* main.cpp in Sources */,
+				A9D65BD01849CADE00F085A2 /* snmp_connection.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -197,6 +207,11 @@
 		A9D65BCC1849CAC800F085A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = /Users/INDY/boost_1_55_0b1/;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/INDY/boost_1_55_0b1/stage/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -204,6 +219,11 @@
 		A9D65BCD1849CAC800F085A2 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				HEADER_SEARCH_PATHS = /Users/INDY/boost_1_55_0b1/;
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/INDY/boost_1_55_0b1/stage/lib,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
